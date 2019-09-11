@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sender</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+            <!-- <th scope="col">Date</th> -->
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let inbox_email of inbox_emails; let i = index" [class.font-weight-bold]="inbox_email.unread==true">
+            <td width="3%">{{i+1}}</td>
+            <td width="5%">{{inbox_email.mId}}</td>
+            <td width="20%">{{inbox_email.subject}}</td>
+            <td class="content">{{inbox_email.content |
+                slice:0:30}}...</td>
+            <!-- <td>{{inbox_email.mId}}</td> -->
+            <td class="action">
+                <i (click)="removeFromInboxAddToDelete(inbox_email.id)" class="fa fa-trash" title="Delete"></i>
+                <i (click)="markAsRead(inbox_email.id)" *ngIf="inbox_email.unread" class="fa fa-envelope-open" title="Mark as read"></i>
+                <i (click)="markAsUnread(inbox_email.id)" *ngIf="!inbox_email.unread" class="fa fa-envelope" title="Mark as unread"></i>
+                <i (click)="archiveMail()" class="fa fa-archive" title="Archive"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

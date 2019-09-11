@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sender</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+            <!-- <th scope="col">Date</th> -->
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let temp_deleted_email of temp_deleted_emails; let i = index">
+                <td width="3%">{{i+1}}</td>
+                <td width="5%">{{temp_deleted_email.mId}}</td>
+                <td width="20%">{{temp_deleted_email.subject}}</td>
+                <td class="content">{{temp_deleted_email.content |
+                    slice:0:30}}...</td>
+            <td title="Delete Permaetly"><i class="fa fa-trash"></i></td>
+        </tr>
+    </tbody>
+</table>

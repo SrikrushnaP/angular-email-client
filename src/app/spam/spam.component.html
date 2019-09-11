@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sender</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let spam_email of spam_emails; let i = index">
+                    <td width="3%">{{i+1}}</td>
+                    <td width="5%">{{spam_email.mId}}</td>
+                    <td width="20%">{{spam_email.subject}}</td>
+                    <td class="content">{{spam_email.content |
+                        slice:0:30}}...</td>
+                <td title="Delete Permaetly"><i class="fa fa-trash"></i></td>
+            </tr>
+    </tbody>
+</table>
